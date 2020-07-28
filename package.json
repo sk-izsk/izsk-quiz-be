@@ -13,6 +13,11 @@
     "precommit:check": "yarn prettier:fix-all",
     "heroku-postbuild": "NODE_ENV=production && yarn install && yarn tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit:check"
+    }
+  },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
