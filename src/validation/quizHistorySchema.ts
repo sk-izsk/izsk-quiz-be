@@ -3,11 +3,11 @@ import { numberSchema, stringSchema } from '.';
 import { dateSchema, emailSchema } from './common';
 
 export interface QuizHistory {
-  date: Date;
-  correctAnswer: number;
-  totalQuestion: number;
-  title: string;
-  type: string;
+  date?: Date;
+  correctAnswer?: number;
+  totalQuestion?: number;
+  title?: string;
+  type?: string;
 }
 
 export interface QuizHistorySchema {

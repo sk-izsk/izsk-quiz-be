@@ -7,8 +7,8 @@ export interface LoginSchema {
 }
 
 const loginSchema = yup.object<LoginSchema>().shape({
-  email: emailSchema.required('Email is required'),
-  password: stringSchema.required('Password is required'),
+  email: emailSchema,
+  password: stringSchema,
 });
 
 export { loginSchema };

@@ -9,9 +9,9 @@ export interface SignUpSchema {
 }
 
 const signUpSchema = yup.object<SignUpSchema>().shape({
-  email: emailSchema.required('Email is required'),
-  password: stringSchema.required('Password is required'),
-  nickName: stringSchema.required('Nick name is required'),
+  email: emailSchema,
+  password: stringSchema,
+  nickName: stringSchema,
   confirmPassword: stringSchema.oneOf([yup.ref('password'), undefined], 'Passwords must match'),
 });
 
