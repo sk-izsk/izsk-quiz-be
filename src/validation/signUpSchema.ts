@@ -8,7 +8,15 @@ export interface SignUpSchema {
   confirmPassword: string;
 }
 
-const signUpSchema = yup.object<SignUpSchema>().shape({
+const signUpSchema: yup.ObjectSchema<yup.Shape<
+  SignUpSchema | undefined,
+  {
+    email: string | undefined;
+    password: string | undefined;
+    nickName: string | undefined;
+    confirmPassword: undefined;
+  }
+>> = yup.object<SignUpSchema>().shape({
   email: emailSchema,
   password: stringSchema,
   nickName: stringSchema,

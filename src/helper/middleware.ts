@@ -1,7 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 
-const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
+const authenticateToken: (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => Promise<Response<any> | undefined> = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.headers['authorization'];
     if (token == null) return res.sendStatus(403);

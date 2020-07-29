@@ -10,19 +10,24 @@ export interface QuizHistory {
 }
 
 export interface QuizHistorySchema {
-  quizHistory: QuizHistory[];
+  quizHistory: QuizHistory[] | [];
 }
 
-const quizHistorySchema = yup.object<QuizHistorySchema>().shape({
-  quizHistory: yup.array().of(
-    yup.object().shape({
-      date: stringSchema,
-      correctAnswer: numberSchema,
-      totalQuestion: numberSchema,
-      title: stringSchema,
-      type: stringSchema,
-    }),
-  ),
+const quizHistorySchema: yup.ObjectSchema<yup.Shape<
+  QuizHistory | undefined,
+  {
+    date: string | undefined;
+    correctAnswer: number | undefined;
+    totalQuestion: number | undefined;
+    title: string | undefined;
+    type: string | undefined;
+  }
+>> = yup.object<QuizHistory>().shape({
+  date: stringSchema,
+  correctAnswer: numberSchema,
+  totalQuestion: numberSchema,
+  title: stringSchema,
+  type: stringSchema,
 });
 
 export { quizHistorySchema };

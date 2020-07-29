@@ -7,7 +7,6 @@ const putRouter: Router = express.Router();
 
 putRouter.put('/quiz-history', authenticateToken, async (req: any, res) => {
   try {
-    // console.log('this is req', req);
     const quizHistoryPayload = {
       date: req.body.date,
       correctAnswer: req.body.correctAnswer,
@@ -15,17 +14,20 @@ putRouter.put('/quiz-history', authenticateToken, async (req: any, res) => {
       title: req.body.title,
       type: req.body.type,
     };
-    const validatedQuizHistoryPayload = await quizHistorySchema.validate(quizHistoryPayload);
-    const response = await SignUpMongooseModelPost.updateOne(
-      { _id: req.user.id },
-      {
-        $push: {
-          quizHistory: validatedQuizHistoryPayload,
+    const isValid: boolean = await quizHistorySchema.isValid(quizHistoryPayload);
+    if (isValid) {
+      const response = await SignUpMongooseModelPost.updateOne(
+        { _id: req.user.id },
+        {
+          $push: {
+            quizHistory: quizHistoryPayload,
+          },
         },
-      },
-    ).catch((err) => res.send(err));
-    res.send(response);
-    console.log('this is validated quiz history', validatedQuizHistoryPayload);
+      ).catch((err) => res.send(err));
+      res.send(response);
+    } else {
+      res.send('Wrong data format');
+    }
   } catch (err) {
     res.send(err);
   }

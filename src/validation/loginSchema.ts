@@ -6,7 +6,13 @@ export interface LoginSchema {
   password: string;
 }
 
-const loginSchema = yup.object<LoginSchema>().shape({
+const loginSchema: yup.ObjectSchema<yup.Shape<
+  LoginSchema | undefined,
+  {
+    email: string | undefined;
+    password: string | undefined;
+  }
+>> = yup.object<LoginSchema>().shape({
   email: emailSchema,
   password: stringSchema,
 });
