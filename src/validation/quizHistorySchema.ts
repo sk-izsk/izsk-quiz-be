@@ -1,9 +1,8 @@
 import * as yup from 'yup';
 import { numberSchema, stringSchema } from '.';
-import { dateSchema, emailSchema } from './common';
 
 export interface QuizHistory {
-  date?: Date;
+  date?: Date | string;
   correctAnswer?: number;
   totalQuestion?: number;
   title?: string;
@@ -11,15 +10,13 @@ export interface QuizHistory {
 }
 
 export interface QuizHistorySchema {
-  email: string;
   quizHistory: QuizHistory[];
 }
 
 const quizHistorySchema = yup.object<QuizHistorySchema>().shape({
-  email: emailSchema.required('Email is required'),
   quizHistory: yup.array().of(
     yup.object().shape({
-      date: dateSchema,
+      date: stringSchema,
       correctAnswer: numberSchema,
       totalQuestion: numberSchema,
       title: stringSchema,

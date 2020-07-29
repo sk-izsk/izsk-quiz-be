@@ -26,7 +26,7 @@ postRouter.post('/sign-up', async (req, res) => {
         };
         const newUserSaveToMongo = new SignUpMongooseModelPost(newUserDetails);
         newUserSaveToMongo.save().then((response: any) => {
-          const token = jwt.sign({ id: response._id }, process.env.JWT_ACCESS_TOKEN as string);
+          const token = jwt.sign({ id: response._id }, process.env.JWT_ACCESS_TOKEN as string, { expiresIn: '60m' });
           const newUserResponse = {
             nickName: response.nickName,
             email: response.email,
@@ -54,7 +54,7 @@ postRouter.post('/login', async (req, res) => {
       if (user === null) res.send('Wrong email or password.');
       const isValidPassword = await bcrypt.compare(password as string, user.password as string);
       if (isValidPassword) {
-        const token = jwt.sign({ id: user._id }, process.env.JWT_ACCESS_TOKEN as string);
+        const token = jwt.sign({ id: user._id }, process.env.JWT_ACCESS_TOKEN as string, { expiresIn: '60m' });
         const userDetails = {
           nickName: user.nickName,
           email: user.email,

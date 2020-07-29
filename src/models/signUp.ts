@@ -8,23 +8,23 @@ export interface SignUpMongo {
   quizHistory: QuizHistory[] | null;
 }
 
-const SignUpSchemaMongo: mongoose.Schema<SignUpMongo> = new mongoose.Schema({
-  nickName: String,
-  email: String,
-  password: String,
-  quizHistory: {
-    type: [
+const SignUpSchemaMongo: mongoose.Schema<SignUpMongo> = new mongoose.Schema(
+  {
+    nickName: String,
+    email: String,
+    password: String,
+    quizHistory: [
       {
-        date: Date,
+        date: String,
         correctAnswer: Number,
         totalQuestion: Number,
         title: String,
         type: String,
       },
     ],
-    default: [],
   },
-});
+  { typeKey: '$type' },
+);
 
 const SignUpMongooseModelPost: mongoose.Model<mongoose.Document, {}> = mongoose.model(
   'izsk-quizzes',

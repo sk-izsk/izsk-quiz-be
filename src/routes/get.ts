@@ -1,9 +1,6 @@
-import dotenv from 'dotenv';
 import express, { Router } from 'express';
 import { authenticateToken } from '../helper';
 import { SignUpMongooseModelPost } from '../models';
-
-dotenv.config();
 
 const getRouter: Router = express.Router();
 

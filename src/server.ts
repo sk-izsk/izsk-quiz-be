@@ -2,7 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import { getRouter, postRouter } from './routes';
+import { getRouter, postRouter, putRouter } from './routes';
 
 dotenv.config();
 
@@ -28,7 +28,7 @@ app.use(
   }),
 );
 
-app.use('/', postRouter, getRouter);
+app.use('/', postRouter, getRouter, putRouter);
 
 mongoose.connect(
   process.env.MONGO_DB_TOKEN as string,
