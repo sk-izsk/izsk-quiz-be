@@ -1,0 +1,1 @@
+export { SignUpMongooseModelPost } from './signUp';
