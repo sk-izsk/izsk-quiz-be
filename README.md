@@ -3,14 +3,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/sk-izsk/backend-portfolio">
-    <img src="README/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/sk-izsk/izsk-corona-tracker-web">
+    <img src="README/favicon.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">React Portfolio</h3>
+  <h3 align="center">Quiz Application Backend</h3>
 
   <p align="center">
-    Built in React with love and passion
+    Built in Node(Express)
+    <br />
+    <br />
     <br />
   </p>
 </p>
@@ -20,9 +22,9 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
   - [Built With](#built-with)
     - [Backend](#backend)
-    - [Database](#database)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -30,30 +32,29 @@
 
 <!-- ABOUT THE PROJECT -->
 
-I love coding specially on javascript/typescript. This is my small effort to show my skill and knowledge so far. As headline suggest I create this react portfolio just out of my passion.
+## About The Project
+
+
+I love coding specially on javascript/typescript. This is my small effort to show my skill and knowledge so far. As headline suggest I create this quiz application just out of my passion and love for node.
 
 ### Built With
 
 #### Backend
 
-The Backend of this portfolio build mainly on NodeJS along with some other important technologies followed
+The Backend of this quiz application build mainly on Node(Express) along with some other important technologies followed
 
-- [NodeJS](https://nodejs.org/en/)
-- [ExpressJS](https://expressjs.com)
-- [Axios](https://github.com/axios/axios)
+- [Node](https://nodejs.org/en/)
+- [Express Js](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com)
+- [CORS](https://github.com/expressjs/cors)
+- [ByCrypt Js](https://github.com/expressjs/cors)
+- [JWT](https://jwt.io)
 - [Typescript](https://www.typescriptlang.org)
-- [Dotenv](https://www.npmjs.com/package/dotenv)
-- [Yup](https://github.com/jquense/yup)
-- [NodeMailer](https://nodemailer.com/about/)
-- [Mailgun](https://www.mailgun.com)
 - [Yarn](https://classic.yarnpkg.com/lang/en/)
 - [Prettier](https://prettier.io)
 - [Husky](https://github.com/typicode/husky)
-- [Heroku(deploy)](https://www.heroku.com)
-
-#### Database
-
-- [MongoDB](https://www.mongodb.com)
+- [Nodemon](https://nodemon.io)
+- [Crypto Js](https://nodejs.org/api/crypto.html)
 
 <!-- GETTING STARTED -->
 
@@ -76,7 +77,7 @@ npm install yarn
 1. Clone the repo
 
 ```sh
-git clone https://github.com/sk-izsk/portfolio.git
+git clone https://github.com/sk-izsk/izsk-quiz-be.git
 ```
 
 2. Install NPM packages
@@ -86,10 +87,16 @@ yarn
 ```
 
 ```sh
-yarn start:dev
+yarn start
 ```
 
-3. For prettier
+3. Testing
+
+```sh
+yarn test
+```
+
+4. For prettier
 
 ```sh
 yarn prettier:fix
@@ -99,9 +106,9 @@ yarn prettier:fix
 
 ## Contact
 
-Shaikh Zeeshan Murshed - [@Sk_iZsk](https://twitter.com/Sk_iZsk) - sk.zeeshan1992@gmail.com
+Shaikh Zeeshan Murshed - [@Sk_iZsk](https://twitter.com/Sk_iZsk) - sk.zeeshan1992@gmail.com - [Portfolio](https://izsk.netlify.app)
 
-Project Link: [https://github.com/sk-izsk/backend-portfolio](https://github.com/sk-izsk/backend-portfolio)
+Project Link: [https://github.com/sk-izsk/izsk-quiz-be.git](https://github.com/sk-izsk/izsk-quiz-be.git)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
